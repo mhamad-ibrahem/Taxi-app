@@ -1,3 +1,4 @@
+import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -9,7 +10,7 @@ abstract class ForgetPasswordController extends GetxController {
   goToOtp();
   goToSignIn();
   checkValid();
-  changeCounty(List<CountryModel> country, int i);
+  changeCounty(Country country);
 }
 
 class ForgetPasswordImplement extends ForgetPasswordController {
@@ -18,11 +19,11 @@ class ForgetPasswordImplement extends ForgetPasswordController {
   bool isActive = false;
   List<CountryModel> countryList = countryData;
   String? countryImage;
-  String? countryCode;
+  String countryCode = '963';
   @override
   checkValid() {
     var formData = formKey1.currentState;
-    if (formData!.validate() && countryCode != null) {
+    if (formData!.validate()) {
       isActive = true;
       update();
     } else {
@@ -45,20 +46,9 @@ class ForgetPasswordImplement extends ForgetPasswordController {
   }
 
   @override
-  changeCounty(country, i) {
-    countryCode = country[i].code;
-    countryImage = country[i].image;
-    checkValid();
-    Get.back();
-    print(countryCode);
-    print(countryImage);
+  changeCounty(country) {
+    countryCode = country.phoneCode;
+    countryImage = country.flagEmoji;
     update();
-  }
-
-  @override
-  void onInit() {
-    countryCode = countryList[0].code;
-    countryImage = countryList[0].image;
-    super.onInit();
   }
 }

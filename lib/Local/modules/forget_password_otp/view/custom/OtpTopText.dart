@@ -31,7 +31,7 @@ class OtpTopPart extends GetView<ForgetPasswordOtpImplement> {
         ),
         RichText(
           text: TextSpan(
-            text: 'Enter the 4-digit code sent to you at\n',
+            text: 'Enter the 6-digit code sent to you at\n',
             style: Theme.of(context).textTheme.headline1,
             children: <TextSpan>[
               TextSpan(

@@ -112,7 +112,7 @@ class HomeControllerImplement extends HomeController {
     Get.back();
     openBottomSheet();
 // Future.delayed(const Duration(seconds: 3));
-    startTimer(6);
+    startTimer(1);
     update();
   }
 

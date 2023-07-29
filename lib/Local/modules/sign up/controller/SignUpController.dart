@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../Global/Core/Class/StatusRequest.dart';
@@ -10,7 +13,7 @@ import '../../login/model/user_model.dart';
 abstract class SignUpController extends GetxController {
   checkValid();
   goToOtp(BuildContext context);
-  changeCounty(List<CountryModel> country, int i);
+  changeCounty(Country country);
   getUser();
 }
 
@@ -20,14 +23,14 @@ class SignUpImplement extends SignUpController {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   List<CountryModel> countryList = countryData;
   String? countryImage;
-  String? countryCode;
+  String countryCode = '963';
   List<UserModel> usersList = [];
   late UserModel userModel;
   StatusRequest statusRequest = StatusRequest.none;
   @override
   checkValid() {
     var formData = formKey.currentState;
-    if (formData!.validate() && countryCode != null) {
+    if (formData!.validate()) {
       isActive = true;
       update();
     } else {
@@ -42,7 +45,7 @@ class SignUpImplement extends SignUpController {
     getUser();
     if (isActive == true) {
       Get.toNamed(AppRoute.signUpOtp, arguments: {
-        "phoneNumber": countryCode! + phone.text.trim(),
+        "phoneNumber": countryCode + phone.text.trim(),
       });
     }
   }
@@ -59,20 +62,10 @@ class SignUpImplement extends SignUpController {
   }
 
   @override
-  changeCounty(country, i) {
-    countryCode = country[i].code;
-    countryImage = country[i].image;
-    checkValid();
-    Get.back();
-    print(countryCode);
-    print(countryImage);
+  changeCounty(country) {
+    countryCode = country.phoneCode;
+    countryImage = country.flagEmoji;
+    log('$isActive');
     update();
-  }
-
-  @override
-  void onInit() {
-    countryImage = countryList[0].image;
-    countryCode = countryList[0].code;
-    super.onInit();
   }
 }

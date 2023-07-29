@@ -12,20 +12,18 @@ class OtpField extends GetView<ForgetPasswordOtpImplement> {
   @override
   Widget build(BuildContext context) {
     return OtpTextField(
-      numberOfFields: 4,
-      fieldWidth: 70.w,
+      numberOfFields: 6,
+      fieldWidth: 45.w,
       textStyle: Theme.of(context).textTheme.headline1,
       borderRadius: BorderRadius.circular(18),
-      margin: EdgeInsets.only(right: 10.w),
+      margin: const EdgeInsets.only(right: 10),
       decoration: const InputDecoration(disabledBorder: InputBorder.none),
       showCursor: false,
       autoFocus: true,
       focusedBorderColor: AppColor.black,
       showFieldAsBox: true,
       keyboardType: TextInputType.number,
-      onSubmit: (val) {
-        controller.goToRestPassword();
-      },
+      onSubmit: (value) => controller.goToRestPassword(),
     );
   }
 }

@@ -35,7 +35,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-     #getx
+  #getx
   get: ^4.6.5
   #api packges
   http: ^0.13.5
@@ -46,7 +46,7 @@ dependencies:
   #local storage packges
   hive_flutter: ^1.1.0
   hive: ^2.2.3
-  fl_country_code_picker: ^0.1.2
+  country_picker: ^2.0.20
   #Google Map
   google_maps_flutter: ^2.2.5
   geolocator: ^9.0.2

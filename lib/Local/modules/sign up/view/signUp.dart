@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../Global/Core/Class/HandilingData.dart';
-import '../../../../Global/Core/functions/Validation.dart';
-import '../../../../Global/Core/functions/showCountryDialog.dart';
-import '../../../Core/Constant/Colors.dart';
-import '../../../Core/Constant/fonts.dart';
+// import '../../../../Global/Core/functions/Validation.dart';
 import '../../../View/Shared/CustomAuthPage.dart';
+import '../../../View/Shared/country_picker.dart';
 import '../../../View/Widget/CustomButton.dart';
 import '../../../View/Widget/CustomForm.dart';
 import '../controller/SignUpController.dart';
@@ -47,44 +45,13 @@ class SignUpScreen extends GetView<SignUpImplement> {
                     child: CustomForm(
                       controller: controller.phone,
                       inputType: TextInputType.number,
-                      prefixWidget: GestureDetector(
-                        onTap: () =>
-                            showCountryDialog(controller.countryList, () {
-                          controller.changeCounty(controller.countryList, 1);
-                        }, 2),
-                        child: SizedBox(
-                          height: 40,
-                          width: 120,
-                          child: Row(
-                            children: [
-                              SizedBox(
-                                width: controller.countryCode != null ? 40 : 0,
-                                height: controller.countryCode != null ? 30 : 0,
-                                child: controller.countryCode != null
-                                    ? Image.asset(
-                                        controller.countryImage!,
-                                      )
-                                    : null,
-                              ),
-                              const SizedBox(
-                                width: 10,
-                              ),
-                              Container(
-                                padding: const EdgeInsets.only(
-                                    left: 10, right: 10, top: 10, bottom: 10),
-                                margin: const EdgeInsets.only(right: 10),
-                                decoration: BoxDecoration(
-                                    color: AppColor.black,
-                                    borderRadius: BorderRadius.circular(10)),
-                                child: Text(
-                                  controller.countryCode ?? "+963",
-                                  style:
-                                      buttonTextStyle().copyWith(fontSize: 13),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
+                      prefixWidget: CountryButtonPick(
+                        countryCode: controller.countryCode,
+                        countryImage: controller.countryImage,
+                        onSelect: (country) {
+                          controller.changeCounty(country);
+                          controller.checkValid();
+                        },
                       ),
                       title: "",
                       obscure: false,
@@ -93,7 +60,9 @@ class SignUpScreen extends GetView<SignUpImplement> {
                         if (val.isNotEmpty) controller.checkValid();
                       },
                       validator: (val) {
-                        return validation(val!, 9, 9, "phone");
+                        return null;
+                        // return validatePhone(
+                        //     val!, controller.countryCode, controller.isActive);
                       },
                     ),
                   ),

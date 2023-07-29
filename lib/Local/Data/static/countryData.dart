@@ -9,15 +9,25 @@ List<CountryModel> countryData = [
   CountryModel(name: "Iraq", code: "+964", image: AppImageAsset.iraqFlagImage),
   CountryModel(
       name: "Jordan", code: "+962", image: AppImageAsset.jordanFlagImage),
-  CountryModel(
-      name: "Falastin", code: "+970", image: AppImageAsset.falastinFlagImage),
+  // CountryModel(
+  //     name: "Falastin", code: "+970", image: AppImageAsset.falastinFlagImage),
   CountryModel(name: "Oman", code: "+968", image: AppImageAsset.omanFlagImage),
   CountryModel(name: "Egypt", code: "+20", image: AppImageAsset.egyptFlagImage),
-  CountryModel(
-      name: "Al Bahreen",
-      code: "+973",
-      image: AppImageAsset.alBahreenFlagImage),
-  CountryModel(
-      name: "Qatar", code: "+974", image: AppImageAsset.qatarFlagImage),
-  CountryModel(name: "Uae", code: "+971", image: AppImageAsset.qatarFlagImage),
+  // CountryModel(
+  //     name: "Al Bahreen",
+  //     code: "+973",
+  //     image: AppImageAsset.alBahreenFlagImage),
+  // CountryModel(
+  //     name: "Qatar", code: "+974", image: AppImageAsset.qatarFlagImage),
+  // CountryModel(name: "Uae", code: "+971", image: AppImageAsset.qatarFlagImage),
+];
+
+List<String> countriesCode = ["SY", "LB", "IQ", "JO", "OM", "AE", "EG"];
+List<String> countriesImages = [
+  AppImageAsset.syriaFlagImage,
+  AppImageAsset.lebanonFlagImage,
+  AppImageAsset.iraqFlagImage,
+  AppImageAsset.jordanFlagImage,
+  AppImageAsset.omanFlagImage,
+  AppImageAsset.egyptFlagImage
 ];

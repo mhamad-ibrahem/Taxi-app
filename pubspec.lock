@@ -97,6 +97,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.1.1"
+  country_picker:
+    dependency: "direct main"
+    description:
+      name: country_picker
+      sha256: aa975b41c8052298d227ff7ff58d6eddcad0196127445f72af7456224c9ef104
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.20"
   crypto:
     dependency: transitive
     description:
@@ -201,14 +209,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.6.0"
-  fl_country_code_picker:
-    dependency: "direct main"
-    description:
-      name: fl_country_code_picker
-      sha256: fa513b167c5333e7829a9707c84898f01a328a31c2a799b3c7d3de508fb9760f
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.1.5"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -222,11 +222,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.2"
-  flutter_localizations:
-    dependency: transitive
-    description: flutter
-    source: sdk
-    version: "0.0.0"
   flutter_otp_text_field:
     dependency: "direct main"
     description:
@@ -413,14 +408,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.2"
-  intl:
-    dependency: transitive
-    description:
-      name: intl
-      sha256: a3715e3bc90294e971cb7dc063fbf3cd9ee0ebf8604ffeafabd9e6f16abbdbe6
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.18.0"
   js:
     dependency: transitive
     description:
@@ -589,14 +576,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.0"
-  scrollable_positioned_list:
-    dependency: transitive
-    description:
-      name: scrollable_positioned_list
-      sha256: "1b54d5f1329a1e263269abc9e2543d90806131aa14fe7c6062a8054d57249287"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.3.8"
   sky_engine:
     dependency: transitive
     description: flutter

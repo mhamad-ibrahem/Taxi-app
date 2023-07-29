@@ -1,20 +1,18 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:country_picker/country_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:taxi_app/Local/Core/Constant/imageAsset.dart';
 import '../../../../Global/Core/Class/StatusRequest.dart';
 import '../../../Core/Constant/routes.dart';
-import '../../../Data/Model/Country/countryModel.dart';
 import '../../../Data/static/countryData.dart';
-import '../model/user_model.dart';
 
 abstract class SignInController extends GetxController {
   goToSignUp();
   goToForgetPassword();
   logIn(BuildContext context);
   checkValid({required formKey});
-  changeCounty(List<CountryModel> country, int i);
+  changeCounty(Country country);
 }
 
 class SignInImplement extends SignInController {
@@ -23,11 +21,12 @@ class SignInImplement extends SignInController {
   late Future<DocumentSnapshot<Map<String, dynamic>>> users;
   User? user = FirebaseAuth.instance.currentUser;
   bool isActive = false;
-  List<CountryModel> countryList = countryData;
-  List<UserModel> usersList = [];
-  late UserModel userModel;
-  String countryImage = AppImageAsset.syriaFlagImage;
-  String countryCode = '+963';
+  // List<CountryModel> countryList = countryData;
+  // List<String> countryImagesList = countriesImages;
+  List<String> countryCodesList = countriesCode;
+
+  String? countryImage;
+  String countryCode = '963';
   StatusRequest statusRequest = StatusRequest.none;
   @override
   void onInit() {
@@ -72,10 +71,9 @@ class SignInImplement extends SignInController {
   }
 
   @override
-  changeCounty(country, i) {
-    countryCode = country[i].code;
-    countryImage = country[i].image;
-    Get.back();
+  changeCounty(country) {
+    countryCode = country.phoneCode;
+    countryImage = country.flagEmoji;
     update();
   }
 
